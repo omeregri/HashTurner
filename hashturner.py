@@ -14,11 +14,12 @@ def hashturner():
     kelime = kelime_girisi.get()
     kelime_girisi.delete(0, 'end')
     hashlib_kelime = hashlib.md5(kelime.encode()).hexdigest()
-    global x
-    x = hashlib_kelime
-    yazi_3.config(text=x)
+    yazi_3.config(text=hashlib_kelime)
+
 def copy_hash():
-    root.clipboard_append(x)
+    root.clipboard_clear()
+    root.clipboard_append(yazi_3.cget("text"))
+
 baslik = tk.Label(root, text="HashTurner", font=('Helvetica',12,'bold'))
 baslik.place(x=210,y=10)
 
